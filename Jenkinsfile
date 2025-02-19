@@ -30,9 +30,21 @@ pipeline {
             }
         }
 
-        stage('Run Tests') {
+        stage('Run UI Test for Project1') {
             steps {
-                sh 'dotnet test --no-build --verbosity normal'
+                sh 'dotnet test TestProject1/TestProject1.csproj --no-build --verbosity normal'
+            }
+        }
+
+        stage('Run UI Test for Project2') {
+            steps {
+                sh 'dotnet test TestProject2/TestProject2.csproj --no-build --verbosity normal'
+            }
+        }
+
+        stage('Run UI Test for Project3') {
+            steps {
+                sh 'dotnet test TestProject3/TestProject3.csproj --no-build --verbosity normal'
             }
         }
     }
